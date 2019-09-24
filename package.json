@@ -1,0 +1,25 @@
+{
+  "name": "pcl-manage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "set NODE_ENV=development&& webpack --watch --mode development",
+    "build": "set NODE_ENV=production&& webpack -p --mode production",
+    "server": "nodemon ./build/server.js",
+    "deploy": "npm run build && now --prod"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "babel-loader": "^8.0.6",
+    "nodemon": "^1.19.2",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
+  }
+}
