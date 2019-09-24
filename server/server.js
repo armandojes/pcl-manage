@@ -1,11 +1,11 @@
 import express from 'express';
-const path = require('path');
-import api from './api/network/router';
+import routes from './network/routes';
 
 //server statics
 const server = express();
+
 server.use('/assets', express.static('public'));
-server.use('/api', api);
+routes(server);
 
 server.get('*', function (request, response) {
   response.send('router primary');

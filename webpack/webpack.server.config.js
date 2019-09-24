@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 const config = {
-  entry: [path.resolve(__dirname, '../server/index.js')],
+  entry: ["regenerator-runtime/runtime", path.resolve(__dirname, '../server/server.js')],
   output: {
     path: path.resolve(__dirname, '../build'),
     filename: 'server.js'
