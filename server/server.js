@@ -7,8 +7,4 @@ const server = express();
 server.use('/assets', express.static('public'));
 routes(server);
 
-server.get('*', function (request, response) {
-  response.send('router primary');
-});
-
 server.listen(3001);
