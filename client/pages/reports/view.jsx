@@ -67,9 +67,8 @@ function View (props){
   }
 
   return (
-    <Container>
-      hello reports
-      <button onClick={handleClick}>generar xls</button>
+    <Container className={style.container}>
+      <button className={style.button} onClick={handleClick}>Generar reporte xls</button>
     </Container>
   )
 }

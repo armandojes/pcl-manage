@@ -5,6 +5,7 @@
   "main": "electron/electron_starter.js",
   "scripts": {
     "pack": "npm run build && electron-builder --x64 --ia32",
+    "packdev": "set NODE_ENV=development&& webpack --mode development && electron-builder --x64 --ia32",
     "electron": "electron .",
     "watch": "set NODE_ENV=development&& webpack --watch --mode development",
     "build": "set NODE_ENV=production&& webpack -p --mode production",
@@ -44,6 +45,7 @@
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
     "electron": "^7.0.0",
+    "electron-builder": "^21.2.0",
     "mini-css-extract-plugin": "^0.8.0",
     "moment-locales-webpack-plugin": "^1.1.0",
     "nodemon": "^1.19.2",
