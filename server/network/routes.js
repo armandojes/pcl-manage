@@ -1,12 +1,14 @@
 import users from '../components/users/network';
-import response_middleware from './response_middleware';
+import login from '../components/login/network';
+
 
 const routes = (server) => {
-  server.use(response_middleware);
+
   server.use('/users', users);
+  server.use('/login', login);
 
   server.get('/', (request, response) => {
-    response.success();
+    response.send('error404');
   })
 }
 
