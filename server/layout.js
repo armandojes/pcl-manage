@@ -11,6 +11,7 @@ function Layout (properties) {
       <div id="render_target">
       </div>
       <script src="${ASSETS}/client.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;subset=latin" media="all">
     </body>
   </html>`)
 }
