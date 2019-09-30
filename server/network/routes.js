@@ -1,15 +1,13 @@
-import users from '../components/users/network';
-import login from '../components/login/network';
-
+import api from './api';
+import Layout from '../layout';
 
 const routes = (server) => {
 
-  server.use('/users', users);
-  server.use('/login', login);
-
-  server.get('/', (request, response) => {
-    response.send('error404');
+  server.use('/api', api);
+  server.get('*', (request, response) => {
+    response.send(Layout());
   })
+
 }
 
 
