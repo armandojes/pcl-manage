@@ -41,6 +41,7 @@ const config = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       BASEURL: JSON.stringify(process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3001'),
       ASSETS: JSON.stringify(process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3001/assets'),
+      API: JSON.stringify(process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3001/api'),
     })
   ],
   target: 'web',

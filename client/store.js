@@ -9,11 +9,13 @@ const enhancer = IS_PRODUCTION
 ? applyMiddleware(ReduxThunk)
 : composeWithDevTools(applyMiddleware(ReduxThunk,logger));
 
+
+
 //creando store
 const store = createStore(
   reducer,
   initial_state,
-  enhancer
+  enhancer,
 );
 
 export default store;
