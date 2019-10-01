@@ -1,10 +1,10 @@
-import users from '../components/users/network';
+import clients from '../components/clients/network';
 import login from '../components/login/network';
 import { Router } from 'express';
 
 
 const api = Router();
-api.use('/users', users);
+api.use('/clients', clients);
 api.use('/login', login);
 
 

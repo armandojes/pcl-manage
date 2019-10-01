@@ -3,7 +3,7 @@ import config from '../config';
 
 const connect = () => {
   const conexion = mysql.createConnection(config.database);
-  conexion.connect((error) => { console.log('[error]' + error) });
+  conexion.connect((error) => { error && (console.log('[error]' + error))});
   return conexion;
 }
 
