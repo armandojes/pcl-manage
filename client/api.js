@@ -13,6 +13,18 @@ const client = {
   }
 }
 
+
+const login = {
+  start(data) {
+    return connect({
+      url: '/login/start',
+      method: 'post',
+      data,
+    });
+  }
+}
+
 export default {
   client,
+  login,
 }

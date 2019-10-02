@@ -82,3 +82,69 @@ body{
   text-decoration: none;
 }
 
+._21a4j4vQh2abgHONMh9rzA{
+  height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.OhcmI9yJ1axGFv5saHdVv{
+  width: 400px;
+  height: 300px;
+  border: 1px solid #cdcdcd;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px #cdcdcd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ndPQ3LJTmL8_dliV0ElHL{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+._2z3NcXR-HSvOu38XeCgmIY{
+  display: block;
+  margin: 0px auto;
+  width: 70%;
+  padding: 8px 15px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #cdcdcd;
+}
+._2J5JgVtRcEV5xQUGX17CgE{
+  display: block;
+  margin: 0px auto;
+  width: 80%;
+  padding: 8px 15px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+._-0scfQwVQouwUepRj_6Ry{
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  display: block;
+  animation-name: _1Z6G8xiPNV8t4rbYVQpHAu;
+  animation-duration: 3000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes _1Z6G8xiPNV8t4rbYVQpHAu {
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(360deg);
+  }
+}
+
