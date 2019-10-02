@@ -1,4 +1,4 @@
-import { verify as verify_jsonwebtoken } from 'jsonwebtoken';
+import { verify as verify_jsonwebtoken, sign as sign_jsonwebtoken } from 'jsonwebtoken';
 import { jsonwebtoken } from '../config.js';
 
 
@@ -16,7 +16,8 @@ export function verify (access_token){
 }
 
 export function sign (data){
-  return '';
+  const access_token = sign_jsonwebtoken(data, jsonwebtoken.key);
+  return access_token;
 }
 
 export default {

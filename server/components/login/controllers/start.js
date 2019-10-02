@@ -1,14 +1,33 @@
-import { sign } from 'jsonwebtoken';
-import {jsonwebtoken} from '../../../config';
+import store from '../store.js';
+import {verify, sign} from '../../../modules/security';
 
-function start (request, response){
-  const  data = {
-    name: 'armando de jesus',
-    id: 1
+
+async function start (request, response){
+  const Store = new store();
+
+  const credential = {
+    user: request.body.user || '',
+    password: request.body.password || '',
   }
-  const access_token = sign(data, jsonwebtoken.key, { expiresIn:  jsonwebtoken.session_time});
-
-  response.success({data: {access_token}});
+  const result = await Store.login({
+    user: request.body.user || '',
+    password: request.body.password || '',
+  });
+  
+  if (result){
+    response.success({
+      payload: {
+        ...result,
+        token: sign(result),
+      }
+    });
+  }
+  else {
+    response.error({
+      error_message: 'usuario o conytraseña incorrectos',
+      status: 'Forbidden',
+    },503);
+  }
 }
 
 export default start;
