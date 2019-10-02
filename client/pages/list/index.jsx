@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, memo } from 'react';
 import Container from '../../components/container';
 import { connect } from 'react-redux';
 import { fetch_clients } from '../../redux/clients';
@@ -6,7 +6,7 @@ import { fetch_clients } from '../../redux/clients';
 function List (props){
 
   useEffect(() => {
-    props.dispatch(fetch_clients());
+  !props.items.length && props.fetch_clients();
   },[])
 
   return (
@@ -16,11 +16,8 @@ function List (props){
   )
 }
 
-function mapStateToProps(state) {
-  console.log(state);
-  return {
-    ...state.clients
-  }
-}
+const mapState = state => state.clients;
 
-export default connect(mapStateToProps)(List);
+const mapDispatch = {fetch_clients}
+
+export default connect(mapState, mapDispatch)(List);
