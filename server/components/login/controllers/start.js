@@ -13,7 +13,7 @@ async function start (request, response){
     user: request.body.user || '',
     password: request.body.password || '',
   });
-  
+
   if (result){
     response.success({
       payload: {
@@ -26,7 +26,7 @@ async function start (request, response){
     response.error({
       error_message: 'usuario o conytraseña incorrectos',
       status: 'Forbidden',
-    },503);
+    },200);
   }
 }
 

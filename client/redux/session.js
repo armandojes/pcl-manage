@@ -1,15 +1,24 @@
+//actions
+export function set_session (payload){
+  return {
+    type: 'SET_SESSION',
+    payload: payload,
+  }
+}
+
+//reducers
 function reducer (state = {}, action = {}){
   switch (action.type){
     case 'SET_SESSION':
-    return Object.assign({}, state, payload);
-    break;
-
-    case 'LOAD_SESSION':
-    return Object.assign({}, state, payload);
-
+      return {
+        ...state,
+        ...action.payload
+      };
+      break;
     default:
-    return state;
+      return state;
   }
+
 
 }
 

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import View from './view';
 import api from '../../api';
-
+import { connect } from 'react-redux';
+import {set_session} from '../../redux/session';
 function Login (props){
 
   const [view, set_view] = useState('form');
@@ -18,8 +19,21 @@ function Login (props){
   }
 
   const handleLogin = async () => {
+    set_view('loading');
     const state = await api.login.start({user,password});
-    console.log(state);
+    if (state.error){
+      set_view('form');
+      alert(state.error_message);
+    }
+    else{
+      props.set_session({
+        name: state.payload.name,
+        logged: true,
+        id: state.payload.id,
+        access_token: state.payload.token,
+      });
+      props.history.replace('/');
+    }
   }
 
   return (
@@ -37,4 +51,4 @@ function Login (props){
 }
 
 
-export default Login;
+export default connect(null, {set_session})(Login);

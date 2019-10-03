@@ -3,6 +3,7 @@ const initial_state = {
     name: '',
     logged: false,
     id: 0,
+    access_token: null,
   },
   clients: {
     items: [],
