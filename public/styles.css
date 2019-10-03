@@ -82,6 +82,32 @@ body{
   text-decoration: none;
 }
 
+._1qUk6VsgowvVgTc27eZKH2{
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+._-0scfQwVQouwUepRj_6Ry{
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  display: block;
+  animation-name: _1Z6G8xiPNV8t4rbYVQpHAu;
+  animation-duration: 3000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes _1Z6G8xiPNV8t4rbYVQpHAu {
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(360deg);
+  }
+}
+
 ._21a4j4vQh2abgHONMh9rzA{
   height: 550px;
   display: flex;
@@ -127,24 +153,5 @@ body{
   text-align: center;
   font-size: 1.3em;
   font-weight: bold;
-}
-
-._-0scfQwVQouwUepRj_6Ry{
-  width: 100px;
-  height: 100px;
-  margin: auto;
-  display: block;
-  animation-name: _1Z6G8xiPNV8t4rbYVQpHAu;
-  animation-duration: 3000ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-
-@keyframes _1Z6G8xiPNV8t4rbYVQpHAu {
-  from {
-    transform: rotate(0deg);
-  } to {
-    transform: rotate(360deg);
-  }
 }
 

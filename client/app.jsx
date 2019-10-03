@@ -4,7 +4,7 @@ import './styles.css';
 import Header from './components/header';
 import {Route, Switch} from 'react-router-dom';
 
-import List from './pages/list';
+import Clients from './pages/clients';
 import Login from './pages/login';
 
 
@@ -13,7 +13,8 @@ function App (props) {
     <div role="aplication">
       <Header />
       <Switch>
-        <Route path='/' exact={true} component={List} />
+        <Route path='/' exact={true} component={Clients} />
+        <Route path='/clientes' exact={true} component={Clients} />
         <Route path='/login' exact={true} component={Login} />
       </Switch>
     </div>
