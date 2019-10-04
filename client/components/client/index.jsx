@@ -1,7 +1,12 @@
 import React from 'react';
 import style from './style';
 
+
 function Client (props){
+
+  
+
+
   return (
     <article className={style.item}>
       <div className={style.name}>
@@ -16,6 +21,7 @@ function Client (props){
       <div className={style.const}>
         $ {props.cost}.00
       </div>
+      <img  className={style.icon} src={`${ASSETS}/no_payed.png`}/>
     </article>
   )
 }
