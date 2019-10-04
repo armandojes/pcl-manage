@@ -1,0 +1,28 @@
+.item{
+  border: 1px solid #cdcdcd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-size: .9em;
+}
+.name{
+  text-align: center;
+  width: 150px;
+}
+.adress{
+  text-align: center;
+  width: 150px;
+  margin-left: 10px;
+}
+.const{
+  color: red;
+  text-align: center;
+  width: 100px;
+  margin-left: 10px;
+}
+.number{
+  width: 100px;
+  text-align: center;
+}

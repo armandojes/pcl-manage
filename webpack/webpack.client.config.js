@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const extract = require('mini-css-extract-plugin');
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
 const config = {
   entry: ["regenerator-runtime/runtime", path.resolve(__dirname, '../client/client.js')],
@@ -33,6 +34,9 @@ const config = {
     extensions: ['.js', '.jsx', '.css']
   },
   plugins: [
+    new MomentLocalesPlugin({
+      localesToKeep: ['es-us'],
+    }),
     new extract({
       filename: "styles.css"
     }),
