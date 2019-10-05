@@ -25,8 +25,21 @@
 .number{
   width: 100px;
   text-align: center;
+  margin-left: 10px;
 }
 .icon{
   width: 30px;
-  margin: auto 15px;
+}
+.button, .button_paid{
+  margin-left: 10px;
+  width: 65px;
+  background: #e0772c;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  padding: 3px 10px;
+  text-align: center;
+}
+.button_paid{
+  background: #088c19;
 }

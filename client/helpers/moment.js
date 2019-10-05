@@ -13,7 +13,7 @@ class Moment {
     return moment.subtract(subtract, 'months').format('MMMM YYYY');
   }
 
-
+  
 }
 
 export default new Moment();

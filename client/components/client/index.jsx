@@ -1,10 +1,10 @@
 import React from 'react';
 import style from './style';
-
+import usePaid from '../../hocks/use_paid';
 
 function Client (props){
 
-  
+  const is_paid = usePaid(props.latest_pay);
 
 
   return (
@@ -21,7 +21,8 @@ function Client (props){
       <div className={style.const}>
         $ {props.cost}.00
       </div>
-      <img  className={style.icon} src={`${ASSETS}/no_payed.png`}/>
+      <button className={is_paid ? style.button_paid :  style.button}>{is_paid ? 'Pagado': 'Cobrar'}</button>
+
     </article>
   )
 }
