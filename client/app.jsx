@@ -8,7 +8,7 @@ import Clients from './pages/clients';
 import Login from './pages/login';
 import Paids from './pages/paids';
 import NotPaids from './pages/not_paids';
-
+import Collect from './pages/collect';
 
 function App (props) {
   return (
@@ -20,6 +20,7 @@ function App (props) {
         <Route path='/login' exact={true} component={Login} />
         <Route path='/pagados' exact={true} component={Paids} />
         <Route path='/nopagados' exact={true} component={NotPaids} />
+        <Route path='/cobrar' exact={true} component={Collect} />
       </Switch>
     </div>
   )

@@ -1,5 +1,6 @@
 build/
 public/client.js
+public/styles.css
 node_modules/
 package-lock.json
 config.js
