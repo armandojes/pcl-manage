@@ -20,7 +20,7 @@ function App (props) {
         <Route path='/login' exact={true} component={Login} />
         <Route path='/pagados' exact={true} component={Paids} />
         <Route path='/nopagados' exact={true} component={NotPaids} />
-        <Route path='/cobrar' exact={true} component={Collect} />
+        <Route path='/cobrar/:id' exact={true} component={Collect} />
       </Switch>
     </div>
   )

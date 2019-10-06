@@ -6,11 +6,12 @@ import LoadingPage from '../../components/loading_page';
 
 
 function View (props){
-  return (
-    <Container>
-      hello collect
-    </Container>
-  )
+
+  if (props.loading) return (<LoadingPage />)
+
+  if (props.data) return 'hello with data';
+
+  return null;
 }
 
 export default View;
