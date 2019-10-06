@@ -17,7 +17,6 @@ function App (props) {
       <Switch>
         <Route path='/' exact={true} component={Clients} />
         <Route path='/clientes' exact={true} component={Clients} />
-        <Route path='/login' exact={true} component={Login} />
         <Route path='/pagados' exact={true} component={Paids} />
         <Route path='/nopagados' exact={true} component={NotPaids} />
         <Route path='/cobrar/:id' exact={true} component={Collect} />

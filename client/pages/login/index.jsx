@@ -32,7 +32,6 @@ function Login (props){
         id: state.payload.id,
         access_token: state.payload.token,
       });
-      props.history.replace('/');
     }
   }
 

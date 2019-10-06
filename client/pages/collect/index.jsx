@@ -2,30 +2,29 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import View from './view';
 import { fetch_clients } from '../../redux/clients';
+import SessionHoc from '../../helpers/session_hoc';
+
 
 function Collect (props){
 
-  console.log('render...')
-
-  useEffect(() => {
-    !props.data && props.fetch_clients();
-  },[])
+  useEffect(() => {!props.client && props.fetch_clients();},[])
 
   return (<View
     {...props}
-    
   />)
 }
+
+
 
 const mapStateToProps = (state, props) => {
   const id = props.match.params.id;
   const clients = state.clients.items;
-  var client_select = clients.filter( client => client.id == id )[0] || null;
+  const client_select = clients.filter( client => client.id == id )[0] || null;
 
   return {
     loading: state.clients.loading,
-    data: client_select,
+    client: client_select,
   }
 }
 
-export default connect(mapStateToProps, {fetch_clients})(Collect);
+export default connect(mapStateToProps, {fetch_clients})(SessionHoc(Collect));
