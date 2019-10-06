@@ -6,6 +6,7 @@ import {Route, Switch} from 'react-router-dom';
 
 import Clients from './pages/clients';
 import Login from './pages/login';
+import Paids from './pages/paids';
 
 
 function App (props) {
@@ -16,6 +17,7 @@ function App (props) {
         <Route path='/' exact={true} component={Clients} />
         <Route path='/clientes' exact={true} component={Clients} />
         <Route path='/login' exact={true} component={Login} />
+        <Route path='/pagados' exact={true} component={Paids} />
       </Switch>
     </div>
   )
