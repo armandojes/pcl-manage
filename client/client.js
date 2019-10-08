@@ -4,10 +4,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
-import moment from 'moment'
-import es_us from 'moment/locale/es-us';
-
-
+import moment from './helpers/moment';
 
 function Client (){
   return (

@@ -1,18 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import View from './view';
 import { fetch_clients } from '../../redux/clients';
 import SessionHoc from '../../helpers/session_hoc';
-
+import LoadingPage from '../../components/loading_page'
+import moment from '../../helpers/moment.js';
 
 function Collect (props){
 
+  const [surcharge, set_surcharge] = useState(get_surcharge());
+
   useEffect(() => {!props.client && props.fetch_clients();},[])
 
-  return (<View
-    {...props}
-  />)
+  function get_surcharge(){
+    moment.get_diference();
+    return '0.00';
+  }
+
+  if (props.client) return (<View
+    {...props.client}
+    local={props.session.name}
+    surcharge={surcharge}
+  />);
+  return (<LoadingPage {...props.client}/>);
 }
+
 
 
 
