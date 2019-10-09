@@ -17,6 +17,17 @@ class Moment {
     return moment.subtract(subtract, 'months').format('MMMM YYYY');
   }
 
+  get_date(){
+    const moment = this.moment();
+    const date = moment.format('dddd D MMMM YYYY');
+    return date;
+  }
+
+  get_day_of_month(){
+    const moment = this.moment();
+    const day = moment.format('D');
+    return day;
+  }
 
 }
 

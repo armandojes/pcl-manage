@@ -224,7 +224,7 @@ body{
 ._3HZqvIb47xgQKavllYPM0O{
   width: 100%;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 20px;
   justify-content: center;
   flex-wrap: wrap;
@@ -254,5 +254,27 @@ body{
   border: none;
   color: #fff;
   font-weight: bold;
+}
+._2qN8rOysF9ehkEeAbvb0cl{
+  background: gray!important;
+}
+._1r87MWSKqUHY9tUBUeMprP{
+  color: red;
+  font-weight: bold;
+}
+._3_jiSvsGKp_a4eohO5uBUw{
+  margin-left: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 6px;
+  color: gray;
+}
+._15KgPcGlZM2V-riafc5bxt{
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid gray;
 }
 

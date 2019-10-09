@@ -5,22 +5,69 @@ import { fetch_clients } from '../../redux/clients';
 import SessionHoc from '../../helpers/session_hoc';
 import LoadingPage from '../../components/loading_page'
 import moment from '../../helpers/moment.js';
+import api from '../../api';
 
 function Collect (props){
 
   const [surcharge, set_surcharge] = useState(get_surcharge());
+  const [view_surcharge, set_view_surcharge] = useState('display'); // display || form
+  const [loading, set_loading] = useState(false);
+
 
   useEffect(() => {!props.client && props.fetch_clients();},[])
 
   function get_surcharge(){
-    moment.get_diference();
-    return '0.00';
+    const day = moment.get_day_of_month();
+    return day > 5 ? 100 : 0;
   }
 
-  if (props.client) return (<View
+  function cancel_surcharge(){
+    set_surcharge(0);
+  }
+
+  function mod_surcharge (){
+    set_view_surcharge('form');
+  }
+
+  function update_surcharge (){
+    set_view_surcharge('display');
+  }
+
+  function handleChange(event){
+    set_surcharge(parseInt(event.target.value || 0), 10);
+  }
+
+  function get_period(){
+    const period = moment.get_period();
+    return period;
+  }
+
+  async function handleCollect (){
+    const data = {
+      id_client: props.client.id,
+      cost: props.client.cost,
+      period: get_period(),
+      date: moment.get_date(),
+    }
+    console.log(data);
+    set_loading(true);
+    const response = await api.pay.collect(data);
+    console.log(response);
+  }
+
+
+  if (props.client && !loading) return (<View
     {...props.client}
     local={props.session.name}
     surcharge={surcharge}
+    total={props.client.cost + surcharge}
+    view_surcharge={view_surcharge}
+    cancel_surcharge={cancel_surcharge}
+    mod_surcharge={mod_surcharge}
+    handleChange={handleChange}
+    update_surcharge={update_surcharge}
+    period={get_period()}
+    handleCollect={handleCollect}
   />);
   return (<LoadingPage {...props.client}/>);
 }

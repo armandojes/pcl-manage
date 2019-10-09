@@ -2,6 +2,7 @@ import React from 'react';
 import Container from '../../components/container';
 import style from './style';
 
+
 function View (props){
 
   return (
@@ -44,22 +45,66 @@ function View (props){
         </div>
         <div className={style.row}>
           <div className={style.description}>
-            Recargo:
+            Periodo:
           </div>
           <div className={style.value}>
-            {props.surcharge}
+            {props.period}
           </div>
         </div>
+        {props.view_surcharge === 'display' && (
+          <div className={style.row}>
+            <div className={style.description}>
+              Recargo:
+            </div>
+            <div className={style.value}>
+              $ {props.surcharge} .00
+            </div>
+            <div
+              dangerouslySetInnerHTML={{__html: 'M'}}
+              className={style.button_cancel}
+              onClick={props.mod_surcharge}
+            />
+            <div
+              className={style.button_cancel}
+              onClick={props.cancel_surcharge}
+              > X </div>
+          </div>
+        )}
+        {props.view_surcharge === 'form' && (
+          <div className={style.row}>
+            <input
+              className={style.input}
+              type="text"
+              value={props.surcharge}
+              onChange={props.handleChange}
+            />
+            <div
+              className={style.button_cancel}
+              dangerouslySetInnerHTML={{__html: '&#9989'}}
+              onClick={props.update_surcharge}
+            />
+
+          </div>
+        )}
+
         <div className={style.row}>
           <div className={style.description}>
             Total:
           </div>
-          <div className={style.value}>
-            $ {props.cost}.00
+          <div className={`${style.value} ${style.total}`}>
+            $ {props.total}.00
           </div>
         </div>
         <div>
-          <button className={style.button}>Cobrar</button>
+          {props.view_surcharge === 'display' && (
+            <button
+              className={style.button}
+              onClick={props.handleCollect}
+            >Cobrar</button>
+          )}
+          {props.view_surcharge === 'form' && (
+            <button className={`${style.button} ${style.button_gray}`}>Cobrar</button>
+          )}
         </div>
       </div>
     </Container>

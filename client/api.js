@@ -24,7 +24,18 @@ const login = {
   }
 }
 
+const pay = {
+  collect(data){
+    return connect({
+      url: '/pay/collect',
+      method: 'post',
+      data,
+    });
+  }
+}
+
 export default {
   client,
   login,
+  pay,
 }

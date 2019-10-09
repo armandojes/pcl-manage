@@ -20,7 +20,7 @@
 .row{
   width: 100%;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 20px;
   justify-content: center;
   flex-wrap: wrap;
@@ -50,4 +50,26 @@
   border: none;
   color: #fff;
   font-weight: bold;
+}
+.button_gray{
+  background: gray!important;
+}
+.total{
+  color: red;
+  font-weight: bold;
+}
+.button_cancel{
+  margin-left: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 6px;
+  color: gray;
+}
+.input{
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid gray;
 }
