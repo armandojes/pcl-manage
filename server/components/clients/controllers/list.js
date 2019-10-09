@@ -1,8 +1,7 @@
 import store from '../store';
 
 async function list (request, response) {
-  const Store = new store();
-  const list_of_clients = await Store.list();
+  const list_of_clients = await store.list_all();
   response.success({payload: list_of_clients});
 }
 

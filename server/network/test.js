@@ -8,8 +8,7 @@ async function Test (reques, response){
   const period_now = moment.get_period();
 
   const Clients = new databse('clients');
-  Clients.limit(50);
-  Clients.update({latest_pay: period_now});
+  Clients.update({latest_pay: 'septiembre 2019'});
   response.send('OK');
 }
 

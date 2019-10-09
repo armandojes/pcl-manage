@@ -10,6 +10,7 @@ const connect = () => {
 const query = (sql) => new Promise((resolve, reject) => {
   const con = connect();
   con.query(sql, (error, data, fields) => {
+    if (error) console.log(error);
     const data_parsed = data ? JSON.parse(JSON.stringify(data)) : null;
     resolve({error: error || false, data: data_parsed || [], fields: fields || {}});
   });
@@ -54,7 +55,7 @@ database.prototype.update = async function (data_to_update){
   };
 }
 
-database.prototype.fetch_sigle = async function (array_of_fileds = '*') {
+database.prototype.fetch_single = async function (array_of_fileds = '*') {
   this.SQL = format(`SELECT ?? FROM ?? ${this.WHERE} ${this.ORDER_BY} LIMIT 1`, [array_of_fileds, this.TABLE_NAME]);
   const result = await query(this.SQL);
   return {error: result.error, data: result.data[0] || null};

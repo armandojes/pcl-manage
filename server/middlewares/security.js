@@ -27,11 +27,11 @@ export async function autenticated (request, response, next){
   const access_token = extract_access_token(request);
   const token_decoded = await verify(access_token);
 
-
   if (!token_decoded) {
     response_not_autenticated(response);
     return false;
   };
+
   request.body.session = token_decoded;
   next();
 }
