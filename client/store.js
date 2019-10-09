@@ -6,6 +6,7 @@ import initial_state from './initial_state';
 import reducer from './reducer';
 import session_persist from './redux/moddlewares/session_persist'
 import session_loader from './helpers/session_loader';
+import {instance_access_token} from './api'
 
 const enhancer = IS_PRODUCTION
 ? applyMiddleware(ReduxThunk,session_persist)
@@ -21,4 +22,5 @@ const store = createStore(
   enhancer,
 );
 
+instance_access_token(store);
 export default store;

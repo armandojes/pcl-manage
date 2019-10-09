@@ -10,6 +10,8 @@ import Paids from './pages/paids';
 import NotPaids from './pages/not_paids';
 import Collect from './pages/collect';
 
+
+
 function App (props) {
   return (
     <div role="aplication">
