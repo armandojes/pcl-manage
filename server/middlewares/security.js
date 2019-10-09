@@ -8,37 +8,48 @@ function extract_access_token (request) {
   return access_token;
 }
 
-const response_not_autenticated = (response) => {
+
+function response_not_autenticated (response){
   response.error({
     error_message: 'autenticacion necesaria!',
     status: 'Unauthorized',
   },401);
 }
 
+function response_not_allowed (response){
+  response.error({
+    error_message: 'no tienes permisos sificientes',
+    status: 'Forbidden',
+  },403);
+}
+
 export async function autenticated (request, response, next){
   const access_token = extract_access_token(request);
-  const decoded = await verify(access_token);
-  if (!decoded) response_not_autenticated(response);
-  else next();
+  const token_decoded = await verify(access_token);
+
+
+  if (!token_decoded) {
+    response_not_autenticated(response);
+    return false;
+  };
+  request.body.session = token_decoded;
+  next();
 }
 
 export async function admin (request, response, next){
   const access_token = extract_access_token(request);
-  const decoded = await verify(access_token)
+  const token_decoded = await verify(access_token);
 
-  if (!decoded) {
+  if (!token_decoded) {
     response_not_autenticated(response);
     return false;
   }
 
-  if (!decoded.admin){
-    response.error({
-      error_message: 'no tienes permisos sificientes',
-      status: 'Forbidden',
-    },403);
+  if (!token_decoded.admin){
+    response_not_allowed(response);
     return false;
   }
-
+  request.body.session = token_decoded;
   next();
 }
 

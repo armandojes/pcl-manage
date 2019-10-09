@@ -11,7 +11,7 @@ function Collect (props){
 
   const [surcharge, set_surcharge] = useState(get_surcharge());
   const [view_surcharge, set_view_surcharge] = useState('display'); // display || form
-  const [loading, set_loading] = useState(false);
+  const [view, set_view] = useState('panel'); //panel || loading
 
 
   useEffect(() => {!props.client && props.fetch_clients();},[])
@@ -49,14 +49,13 @@ function Collect (props){
       period: get_period(),
       date: moment.get_date(),
     }
-    console.log(data);
-    set_loading(true);
+    set_view('loading');
     const response = await api.pay.collect(data);
     console.log(response);
   }
 
 
-  if (props.client && !loading) return (<View
+  if (props.client && view === 'panel') return (<View
     {...props.client}
     local={props.session.name}
     surcharge={surcharge}

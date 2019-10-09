@@ -27,7 +27,7 @@ const login = {
 const pay = {
   collect(data){
     return connect({
-      url: '/pay/collect',
+      url: '/pays/collect',
       method: 'post',
       data,
     });
