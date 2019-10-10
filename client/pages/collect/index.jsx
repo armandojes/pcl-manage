@@ -44,6 +44,7 @@ function Collect (props){
 
   async function handleCollect (){
     const data = {
+      surcharge: surcharge,
       id_client: props.client.id,
       cost: props.client.cost,
       period: get_period(),

@@ -14,6 +14,10 @@ async function Collect  (request, response) {
     return false;
   }
 
+  const meta = payload.surcharge
+  ? JSON.stringify({surcharge: payload.surcharge})
+  : '{}'
+
   await store.update_latest_pay(payload.id_client, payload.period);
 
   const id_created = await store.save({
@@ -23,7 +27,7 @@ async function Collect  (request, response) {
     cost: payload.cost,
     period: payload.period,
     date: payload.date,
-    meta: '{}',
+    meta,
   });
 
   response.success({payload: {
