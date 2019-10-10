@@ -8,7 +8,7 @@ function response (request, response, next){
       status: data.status || 'OK',
     });
   }
-  response.error = function (data = {}, code = 500){
+  response.error = function (data = {}, code = 200){
     response.status(code);
     response.json({
       error: data.error || true,
@@ -17,7 +17,7 @@ function response (request, response, next){
       status: data.status || 'Internal Server Error',
     });
   }
-  
+
   next();
 }
 

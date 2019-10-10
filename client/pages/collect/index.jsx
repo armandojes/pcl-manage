@@ -4,6 +4,8 @@ import View from './view';
 import { fetch_clients } from '../../redux/clients';
 import SessionHoc from '../../helpers/session_hoc';
 import LoadingPage from '../../components/loading_page'
+import Success from '../../components/success'
+import Error from '../../components/error'
 import moment from '../../helpers/moment.js';
 import api from '../../api';
 
@@ -11,8 +13,7 @@ function Collect (props){
 
   const [surcharge, set_surcharge] = useState(get_surcharge());
   const [view_surcharge, set_view_surcharge] = useState('display'); // display || form
-  const [view, set_view] = useState('panel'); //panel || loading
-
+  const [view, set_view] = useState('panel'); //panel || loading || success || error
 
   useEffect(() => {!props.client && props.fetch_clients();},[])
 
@@ -52,7 +53,12 @@ function Collect (props){
     }
     set_view('loading');
     const response = await api.pay.collect(data);
-    console.log(response);
+    props.fetch_clients();
+    
+    response.error
+    ? set_view('error')
+    : set_view('success');
+
   }
 
 
@@ -69,6 +75,18 @@ function Collect (props){
     period={get_period()}
     handleCollect={handleCollect}
   />);
+
+  if (view === 'success') return (
+    <Success
+      message="Pago registrado correctamente"
+    />
+  )
+  if (view === 'error') return (
+    <Error
+      message="Error interno del servidor"
+    />
+  )
+
   return (<LoadingPage {...props.client}/>);
 }
 

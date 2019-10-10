@@ -1,0 +1,28 @@
+.loading_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  flex-direction: column;
+}
+.picture{
+  width: 120px;
+  margin-bottom: 20px;
+}
+.message{
+  margin-top: 50px;
+  font-size: 1.5em;
+  color: #9E9E9E;
+}
+.box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid red;
+  padding: 20px;
+  width: 400px;
+  height: 300px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 8px gray;
+}
