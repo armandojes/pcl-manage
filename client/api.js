@@ -21,6 +21,13 @@ async function connect (config){
 const client = {
   get_list() {
     return connect({url: '/clients'});
+  },
+  create(data) {
+    return connect({
+      url: '/clients/create',
+      method: 'post',
+      data,
+    });
   }
 }
 

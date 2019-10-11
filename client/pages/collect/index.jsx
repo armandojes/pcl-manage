@@ -35,7 +35,7 @@ function Collect (props){
   }
 
   function handleChange(event){
-    set_surcharge(parseInt(event.target.value || 0), 10);
+    set_surcharge(parseInt(event.target.value || 0));
   }
 
   function get_period(){
@@ -54,7 +54,7 @@ function Collect (props){
     set_view('loading');
     const response = await api.pay.collect(data);
     props.fetch_clients();
-    
+
     response.error
     ? set_view('error')
     : set_view('success');

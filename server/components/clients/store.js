@@ -16,6 +16,16 @@ class Clients {
     return result.state;
   }
 
+  async save(data){
+    const clients = new database('clients');
+    const result = await clients.create({
+      latest_pay: 'pending',
+      is_paid: 1,
+      ...data
+    });
+    return result.id;
+  }
+
 }
 
 export default new Clients;
