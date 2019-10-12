@@ -10,6 +10,7 @@ import Paids from './pages/paids';
 import NotPaids from './pages/not_paids';
 import Collect from './pages/collect';
 import NewClient from './pages/new_client';
+import EditClient from './pages/edit_client';
 
 
 
@@ -24,6 +25,7 @@ function App (props) {
         <Route path='/nopagados' exact={true} component={NotPaids} />
         <Route path='/cobrar/:id' exact={true} component={Collect} />
         <Route path='/nuevocliente' exact={true} component={NewClient} />
+        <Route path='/editarcliente/:id' exact={true} component={EditClient} />
       </Switch>
     </div>
   )

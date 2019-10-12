@@ -3,10 +3,10 @@ import style from './style'
 
 function Form (props){
 
-  const [name, set_name] = useState('');
-  const [cost, set_cost] = useState('');
-  const [number, set_number] = useState('');
-  const [adress, set_adress] = useState('');
+  const [name, set_name] = useState(props.name || '');
+  const [cost, set_cost] = useState(props.cost || '');
+  const [number, set_number] = useState(props.number || '');
+  const [adress, set_adress] = useState(props.adress || '');
 
   function handleCost(event){
     if (event.target.value === ''){set_cost(''); return false}
@@ -25,7 +25,7 @@ function Form (props){
   function handleSubmit(event){
     console.log('execute form');
     event.preventDefault();
-    props.handleAction({name,cost,number,adress});
+    props.handleAction({name,cost,number,adress, id: props.id || null});
   }
 
   return (

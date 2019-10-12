@@ -8,11 +8,9 @@ import Success from './components/success';
 import Loading from '../../components/loading';
 import { fetch_clients } from '../../redux/clients';
 
-console.log(fetch_clients);
-
 function ClientForm(props){
 
-  //form || loading || success || error
+  // form || loading || success || error
   const [display, set_display] = useState('form');
   const [data, set_data] = useState(null);
 
@@ -28,7 +26,7 @@ function ClientForm(props){
   return (
     <Container className={style.container}>
       <div className={style.box}>
-        {display === 'form' && (<Form title={props.title} handleAction={handleAction} />)}
+        {display === 'form' && (<Form title={props.title} handleAction={handleAction} {...props.client}/>)}
         {display === 'loading' && (<Loading />)}
         {display === 'success' && (<Success message={props.success_message} />)}
         {display === 'error' && (<Error message={props.error_message} />)}

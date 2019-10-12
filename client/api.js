@@ -28,6 +28,13 @@ const client = {
       method: 'post',
       data,
     });
+  },
+  update(data) {
+    return connect({
+      url: '/clients/update',
+      method: 'post',
+      data,
+    });
   }
 }
 

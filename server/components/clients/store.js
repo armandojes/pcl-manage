@@ -26,6 +26,14 @@ class Clients {
     return result.id;
   }
 
+  async update(id, data){
+    const clients = new database('clients');
+    clients.where('id', id);
+    const result = await clients.update(data);
+
+    return result.state;
+  }
+
 }
 
 export default new Clients;
