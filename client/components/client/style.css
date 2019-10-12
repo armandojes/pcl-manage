@@ -43,3 +43,14 @@
 .button_paid{
   background: #088c19;
 }
+.update{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  width: 60px;
+}
+.update img {
+  width: 30px;
+}

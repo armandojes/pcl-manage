@@ -128,6 +128,17 @@ body{
 ._3lwAlk-pnuMX6E-wLakk8l{
   background: #088c19;
 }
+._3F8ahZ6MVkEvgh_1ljfFHR{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  width: 60px;
+}
+._3F8ahZ6MVkEvgh_1ljfFHR img {
+  width: 30px;
+}
 
 ._1qUk6VsgowvVgTc27eZKH2{
   height: 90vh;

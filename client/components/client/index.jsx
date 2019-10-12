@@ -2,6 +2,7 @@ import React from 'react';
 import style from './style';
 import usePaid from '../../hocks/use_paid';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Client (props){
 
@@ -26,6 +27,9 @@ function Client (props){
       <div className={style.const}>
         $ {props.cost}.00
       </div>
+      <Link className={style.update} to={`/editarcliente/${props.id}`} >
+        <img src={`${ASSETS}/update.png`} />
+      </Link>
       <button onClick={handleClick} className={is_paid ? style.button_paid :  style.button}>{is_paid ? 'Pagado': 'Cobrar'}</button>
     </article>
   )
