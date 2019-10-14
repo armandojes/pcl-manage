@@ -8,8 +8,8 @@ function Menu (){
       <Link to="/clientes" className={style.menu_item}>Clientes</Link>
       <Link to="/pagados" className={style.menu_item}>Pagados</Link>
       <Link to="/nopagados" className={style.menu_item}>No pagados</Link>
-      <Link to="/actas" className={style.menu_item}>actas</Link>
-      <Link to="/curp" className={style.menu_item}>Curps</Link>
+      <Link to="/nuevocliente" className={style.menu_item}>Nuevo cliente</Link>
+      <Link to="/calculadora" className={style.menu_item}>Calculadora</Link>
     </section>
   )
 }
