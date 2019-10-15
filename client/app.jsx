@@ -11,6 +11,7 @@ import NotPaids from './pages/not_paids';
 import Collect from './pages/collect';
 import NewClient from './pages/new_client';
 import EditClient from './pages/edit_client';
+import Calculator from './pages/calculator';
 
 
 
@@ -20,6 +21,7 @@ function App (props) {
       <Header />
       <Switch>
         <Route path='/' exact={true} component={Clients} />
+        <Route path='/calculadora' exact={true} component={Calculator} />
         <Route path='/clientes' exact={true} component={Clients} />
         <Route path='/pagados' exact={true} component={Paids} />
         <Route path='/nopagados' exact={true} component={NotPaids} />
