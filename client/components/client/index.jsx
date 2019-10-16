@@ -14,7 +14,7 @@ function Client (props){
   }
 
   return (
-    <article className={style.item}>
+    <article className={`${style.item} ${!props.id && (style.header)}`}>
       <div className={style.name}>
         {props.name}
       </div>
@@ -24,15 +24,32 @@ function Client (props){
       <div className={style.number}>
         {props.number}
       </div>
-      <div className={style.const}>
-        $ {props.cost}.00
+      <div className={style.latest_pay}>
+        {props.latest_pay}
       </div>
-      <Link className={style.update} to={`/editarcliente/${props.id}`} >
-        <img src={`${ASSETS}/update.png`} />
-      </Link>
-      <button onClick={handleClick} className={is_paid ? style.button_paid :  style.button}>{is_paid ? 'Pagado': 'Cobrar'}</button>
+      <div className={style.const}>
+        {props.id
+          ? (`$ ${props.cost}.00`)
+          : (`Menusualidad`)}
+      </div>
+      {props.id && (
+        <Link className={style.update} to={`/editarcliente/${props.id}`} >
+          <img src={`${ASSETS}/update.png`} />
+        </Link>
+      )}
+      {props.id && is_paid && props.latest_pay != 'pending' && (
+        <button className={style.button_paid}> Pagado </button>
+      )}
     </article>
   )
 }
 
 export default withRouter(Client);
+// {props.id && (
+//   <button
+//     onClick={handleClick}
+//
+//     className={is_paid ? style.button_paid :  style.button}>{is_paid ? 'Pagado': 'Cobrar'}
+//
+//   </button>
+// )}

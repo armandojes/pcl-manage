@@ -10,7 +10,7 @@ async function create (request, response) {
     adress: data.adress,
     cost: data.cost,
     number: data.number,
-    meta: JSON.stringify({place: session.name}),
+    meta: JSON.stringify({place: session.name, date: data.date}),
   });
 
   response.success({payload: {

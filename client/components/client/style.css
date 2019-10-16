@@ -1,3 +1,11 @@
+.header{
+  font-weight: bold;
+  color: #ffffff!important;
+  background: #2196F3;
+}
+.header div {
+  color: #ffffff!important;
+}
 .item{
   border: 1px solid #cdcdcd;
   padding: 10px;
@@ -53,4 +61,8 @@
 }
 .update img {
   width: 30px;
+}
+.latest_pay{
+  width: 180px;
+  text-align: center;
 }

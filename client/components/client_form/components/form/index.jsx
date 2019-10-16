@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import style from './style'
+import moment from '../../../../helpers/moment';
 
 function Form (props){
 
@@ -23,9 +24,8 @@ function Form (props){
   }
 
   function handleSubmit(event){
-    console.log('execute form');
     event.preventDefault();
-    props.handleAction({name,cost,number,adress, id: props.id || null});
+    props.handleAction({name,cost,number,adress, id: props.id || null, date: moment.get_date()});
   }
 
   return (
