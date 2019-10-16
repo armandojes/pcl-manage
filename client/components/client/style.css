@@ -38,7 +38,7 @@
 .icon{
   width: 30px;
 }
-.button, .button_paid{
+.button, .button_paid, .button_new{
   margin-left: 10px;
   width: 65px;
   background: #e0772c;
@@ -50,6 +50,9 @@
 }
 .button_paid{
   background: #088c19;
+}
+.button_new{
+  background: #2195f3;
 }
 .update{
   display: flex;

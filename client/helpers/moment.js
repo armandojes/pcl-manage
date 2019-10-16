@@ -29,6 +29,11 @@ class Moment {
     return day;
   }
 
+  to_period(date){
+    const moment = this.moment(date);
+    return moment.format('MMMM YYYY');
+  }
+
 }
 
 export default new Moment();

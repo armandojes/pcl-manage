@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 function Client (props){
 
-  const is_paid = usePaid(props.latest_pay);
+  const is_paid = usePaid(props);
 
   const handleClick = () => {
     if (is_paid) return false;
@@ -37,19 +37,17 @@ function Client (props){
           <img src={`${ASSETS}/update.png`} />
         </Link>
       )}
-      {props.id && is_paid && props.latest_pay != 'pending' && (
+      {props.id && is_paid && is_paid === true && (
         <button className={style.button_paid}> Pagado </button>
+      )}
+      {props.id && is_paid === false && (
+        <button onClick={handleClick} className={style.button}> Cobrar </button>
+      )}
+      {props.id && is_paid === 'new' && (
+        <button onClick={handleClick} className={style.button_new}> Nuevo </button>
       )}
     </article>
   )
 }
 
 export default withRouter(Client);
-// {props.id && (
-//   <button
-//     onClick={handleClick}
-//
-//     className={is_paid ? style.button_paid :  style.button}>{is_paid ? 'Pagado': 'Cobrar'}
-//
-//   </button>
-// )}
