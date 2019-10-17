@@ -1,0 +1,13 @@
+{
+  "alias": "pcl",
+  "name": "pcl",
+  "version": 2,
+  "builds": [
+    { "src": "./build/server.js", "use": "@now/node-server" },
+    { "src": "./public/*", "use": "@now/static"}
+  ],
+  "routes": [
+    { "src": "/public/(.*)","dest": "/public/$1" },
+    { "src": "(.*)", "dest": "/build/server.js" }
+  ]
+}

@@ -1,0 +1,10 @@
+.git/
+client/
+server/
+node_modules/
+webpack/
+.gitignore
+.nowignore
+package-lock.json
+package.json
+webpack.config.js

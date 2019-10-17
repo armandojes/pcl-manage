@@ -4,7 +4,7 @@ import response from './middlewares/response';
 
 //server statics
 const server = express();
-server.use('/assets', express.static('public'));
+server.use('/public', express.static('public'));
 server.use(express.json());
 server.use(response);
 
