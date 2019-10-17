@@ -69,3 +69,22 @@
   width: 180px;
   text-align: center;
 }
+.status{
+  text-align: center;
+  width: 100px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.status_body{
+  border: 1px solid #2195f3;
+  width: 54px;
+  border-radius: 4px;
+  color: #2195f3;
+  padding: 3px;
+}
+.status_body_baja{
+  border: 1px solid red;
+  color: red;
+}

@@ -46,6 +46,13 @@ function Client (props){
       {props.id && is_paid === 'new' && (
         <button onClick={handleClick} className={style.button_new}> Nuevo </button>
       )}
+      {props.id && (
+        <div className={style.status}>
+          <div className={`${style.status_body} ${props.status === 'baja' && style.status_body_baja}`}>
+            {props.status}
+          </div>
+        </div>
+      )}
     </article>
   )
 }
