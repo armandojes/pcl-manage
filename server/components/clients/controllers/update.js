@@ -9,9 +9,8 @@ async function update(request, response){
     adress: data.adress,
     number: data.number,
     cost: data.cost,
+    status: data.status,
   });
-
-  console.log(state);
 
   if (state){
     response.success();

@@ -20,7 +20,7 @@ class Clients {
     const clients = new database('clients');
     const result = await clients.create({
       latest_pay: 'pending',
-      is_paid: 1,
+      status: 'activo',
       ...data
     });
     return result.id;

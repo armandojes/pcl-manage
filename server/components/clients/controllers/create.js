@@ -13,6 +13,8 @@ async function create (request, response) {
     meta: JSON.stringify({place: session.name, date: data.date}),
   });
 
+  if (!id_created) return response.error();
+
   response.success({payload: {
     id: id_created,
   }});

@@ -380,19 +380,38 @@ body{
   text-align: center;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 ._2HAomnZPYEGgSKPnl2DHH8{
   font-size: 1.2em;
   font-weight: bold;
   margin: 50px auto;
 }
-._2JyHj7ZdAIyKbMr7hFPVqx{
+._2JyHj7ZdAIyKbMr7hFPVqx, ._2Pyc6yDVhbG8rEbaQdD28O{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px;
   width: 80%;
   border-radius: 5px;
   border: 1px solid #cdcdcd;
   margin-bottom: 16px;
   box-sizing: border-box;
+}
+._2Pyc6yDVhbG8rEbaQdD28O{
+  border: none;
+}
+._2eT-DmPowo8z6Dzz5AYNcl{
+  margin-right: 25px;
+}
+.OPZxl9Wa2MebNKchD5fp7{
+  display: flex;
+  align-items: center;
+}
+.OPZxl9Wa2MebNKchD5fp7:first-of-type{
+  margin-right: 15px;
 }
 
 ._3yaTwsfARUln9J5F56Rdwg{
