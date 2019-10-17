@@ -9,7 +9,9 @@ function Search (props){
         type="text"
         name="search"
         className={style.input}
-        autoComplete="off"/>
+        autoComplete="off"
+        placeholder="Buscar cliente..."
+      />
     </div>
   )
 }

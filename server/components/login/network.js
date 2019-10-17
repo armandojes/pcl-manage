@@ -8,9 +8,5 @@ const login = Router();
 
 login.post('/start',start);
 
-login.get('/test', function (request, response){
-  response.send('render to string');
-  
-});
 
 export default login;

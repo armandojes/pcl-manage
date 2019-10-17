@@ -6,7 +6,7 @@ class Login {
     const db_places = new database('places');
     db_places.where('user', user);
     db_places.where('password', password);
-    const result = await db_places.fetch_sigle(['id', 'meta', 'user', 'name']);
+    const result = await db_places.fetch_single(['id', 'meta', 'user', 'name']);
     return result.data || false;
   }
 
