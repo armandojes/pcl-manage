@@ -22,6 +22,9 @@ const config = {
   resolve: {
     extensions: ['.js']
   },
+  optimization: {
+    minimize: false
+  },
   plugins: [
     new webpack.DefinePlugin({
       IS_PRODUCTION: process.env.NODE_ENV === 'production' ? true : false,
