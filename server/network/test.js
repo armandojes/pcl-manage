@@ -1,26 +1,19 @@
-import store from '../components/clients/store';
-import databse from '../modules/database';
-import moment from '../modules/moment';
-import clients from '../clients'
+import mysql, { format } from 'mysql';
+import config from '../config';
+
 
 async function Test (reques, response){
-  const clientsDB = new databse('clients');
-  var client;
-  for (let index = 0; index < clients.length; index++){
-    client = clients[index];
-    const data = {
-      ...client,
-      latest_pay: 'pending',
-      status: 'activo',
-      meta: '{}',
-    }
-    const state = await clientsDB.create(data);
-    console.log(state);
-    console.log(index);
-  }
 
-  console.log(clients.length);
-  response.send('OK');
+  const conexion = mysql.createConnection(config.database);
+  conexion.connect((error) => {
+    console.log(error)
+    if (error){
+      response.send(error)
+    } else {
+      response.send('OK');
+    }
+  });
+  //response.success();
 }
 
 export default Test;
