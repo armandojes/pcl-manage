@@ -15,9 +15,16 @@ function Client (props){
 
   return (
     <article className={`${style.item} ${!props.id && (style.header)}`}>
-      <div className={style.name}>
-        {props.name}
-      </div>
+      {props.id && (
+        <Link to={`/cliente/${props.id}`} className={style.name}>
+          {props.name}
+        </Link>
+      )}
+      {!props.id && (
+        <div className={style.name}>
+          {props.name}
+        </div>
+      )}
       <div className={style.adress}>
         {props.adress}
       </div>

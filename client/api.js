@@ -56,6 +56,11 @@ const pay = {
       method: 'post',
       data,
     });
+  },
+  get_all(){
+    return connect({
+      url: '/pays'
+    });
   }
 }
 

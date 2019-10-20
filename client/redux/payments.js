@@ -1,4 +1,13 @@
+import api from '../api'
+
 //actions
+export const fetch_pays = () => async(dispatch) => {
+  dispatch(load_payments());
+  const response = await api.pay.get_all();
+  dispatch(set_payments(response.payload))
+}
+
+
 function set_payments (payload){
   return {
     type: 'SET_PAYMENTS',
@@ -16,14 +25,14 @@ function load_payments (){
 function reducer (state = {}, action){
 
   switch (action.type){
-    case 'SET_PAYMENTS':
+    case 'LOAD_PAYMENTS':
     return {
       items: [],
       loading: true,
     }
     break;
 
-    case 'LOAD_PAYMENTS':
+    case 'SET_PAYMENTS':
     return {
       items: action.payload,
       loading: false,
