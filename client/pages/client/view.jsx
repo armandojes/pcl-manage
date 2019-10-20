@@ -17,7 +17,7 @@ function View (props){
     'agosto',
     'septiembre',
     'octubre',
-    'nobiembre',
+    'noviembre',
     'diciembre',
   ];
 

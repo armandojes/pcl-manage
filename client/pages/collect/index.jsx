@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import View from './view';
 import { fetch_clients } from '../../redux/clients';
+import { fetch_pays } from '../../redux/payments';
 import SessionHoc from '../../helpers/session_hoc';
 import LoadingPage from '../../components/loading_page'
 import Success from '../../components/success'
@@ -10,6 +11,10 @@ import moment from '../../helpers/moment.js';
 import api from '../../api';
 
 function Collect (props){
+
+  const month = props.match.params.month || null;
+  const period  = month ? moment.number_month_to_period(month) : moment.get_period();
+
 
   const [surcharge, set_surcharge] = useState(get_surcharge());
   const [view_surcharge, set_view_surcharge] = useState('display'); // display || form
@@ -38,23 +43,21 @@ function Collect (props){
     set_surcharge(parseInt(event.target.value || 0));
   }
 
-  function get_period(){
-    const period = moment.get_period();
-    return period;
-  }
-
   async function handleCollect (){
     const data = {
       surcharge: surcharge,
       id_client: props.client.id,
       cost: props.client.cost,
-      period: get_period(),
+      period,
+      actual_period: moment.get_period(),
       date: moment.get_date(),
       year: moment.get_year(),
     }
     set_view('loading');
     const response = await api.pay.collect(data);
+
     props.fetch_clients();
+    if (! response.error) props.fetch_pays(moment.get_year());
 
     response.error
     ? set_view('error')
@@ -73,7 +76,7 @@ function Collect (props){
     mod_surcharge={mod_surcharge}
     handleChange={handleChange}
     update_surcharge={update_surcharge}
-    period={get_period()}
+    period={period}
     handleCollect={handleCollect}
   />);
 
@@ -105,4 +108,4 @@ const mapStateToProps = (state, props) => {
   }
 }
 
-export default connect(mapStateToProps, {fetch_clients})(SessionHoc(Collect));
+export default connect(mapStateToProps, {fetch_clients, fetch_pays })(SessionHoc(Collect));

@@ -39,6 +39,13 @@ class Moment {
     return moment.format('YYYY');
   }
 
+  //menos 1 porque estan indexados apartir de 0 {0: enero}
+  number_month_to_period(m){
+    const moment = this.moment();
+    moment.month(m - 1);
+    return moment.format('MMMM YYYY');
+  }
+
 }
 
 export default new Moment();

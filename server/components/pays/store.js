@@ -12,7 +12,7 @@ class Store {
     : list_of_pays.data;
   }
 
-  async is_paid(id_client, period){
+  async is_period_paid(id_client, period){
     const pays = new database('pays');
     pays.where('id_client', id_client);
     pays.where('period', period);
@@ -29,6 +29,14 @@ class Store {
     const pays = new database('pays');
     const result = await pays.create(data);
     return result.id;
+  }
+
+  async get_latest_pay(id_client){
+    const Clients = new database('clients');
+    Clients.where('id', id_client);
+    Clients.limit(1);
+    const result = await Clients.fetch_single(['latest_pay']);
+    return result.data.latest_pay || null;
   }
 }
 

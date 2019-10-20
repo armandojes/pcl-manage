@@ -26,6 +26,7 @@ function App (props) {
         <Route path='/pagados' exact={true} component={Paids} />
         <Route path='/nopagados' exact={true} component={NotPaids} />
         <Route path='/cobrar/:id' exact={true} component={Collect} />
+        <Route path='/cobrar/:id/:month' exact={true} component={Collect} />
         <Route path='/nuevocliente' exact={true} component={NewClient} />
         <Route path='/editarcliente/:id' exact={true} component={EditClient} />
         <Route path='/cliente/:id' exact={true} component={Client} />
