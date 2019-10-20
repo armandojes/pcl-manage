@@ -27,6 +27,7 @@ async function Collect  (request, response) {
     cost: payload.cost,
     period: payload.period,
     date: payload.date,
+    year: payload.year,
     meta,
   });
 

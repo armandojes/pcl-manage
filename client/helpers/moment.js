@@ -34,6 +34,11 @@ class Moment {
     return moment.format('MMMM YYYY');
   }
 
+  get_year(){
+    const moment = this.moment();
+    return moment.format('YYYY');
+  }
+
 }
 
 export default new Moment();

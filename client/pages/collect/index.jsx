@@ -50,6 +50,7 @@ function Collect (props){
       cost: props.client.cost,
       period: get_period(),
       date: moment.get_date(),
+      year: moment.get_year(),
     }
     set_view('loading');
     const response = await api.pay.collect(data);

@@ -4,14 +4,12 @@ import {fetch_pays} from '../../redux/payments';
 import {fetch_clients} from '../../redux/clients';
 import LoadingPage from '../../components/loading_page'
 import View from './view';
-
+import moment from '../../helpers/moment';
 
 function Client (props){
 
-  console.log(props);
-
   useEffect(() => {
-    if (!props.pays)props.fetch_pays();
+    if (!props.pays)props.fetch_pays(moment.get_year());
     if (!props.client) props.fetch_clients();
   },[]);
 

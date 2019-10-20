@@ -57,9 +57,9 @@ const pay = {
       data,
     });
   },
-  get_all(){
+  get_all(year){
     return connect({
-      url: '/pays'
+      url: `/pays/${year}`
     });
   }
 }

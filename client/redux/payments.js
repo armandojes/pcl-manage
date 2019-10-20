@@ -1,9 +1,9 @@
 import api from '../api'
 
 //actions
-export const fetch_pays = () => async(dispatch) => {
+export const fetch_pays = (year) => async(dispatch) => {
   dispatch(load_payments());
-  const response = await api.pay.get_all();
+  const response = await api.pay.get_all(year);
   dispatch(set_payments(response.payload))
 }
 

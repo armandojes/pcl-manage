@@ -3,8 +3,9 @@ import clients_store from  '../clients/store';
 
 class Store {
 
-  async get_list () {
+  async get_list_for_year (year) {
     const Pays = new database('pays');
+    Pays.where('year', year);
     const list_of_pays = await Pays.fetch_list();
     return list_of_pays.error
     ? []
