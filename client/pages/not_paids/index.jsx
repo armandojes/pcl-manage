@@ -17,9 +17,9 @@ function NotPaids (props){
 
 const mapStateToProps = (state) => {
   const clients_paid = state.clients.items.filter(client => {
-    if (client.latest_pay === 'pending') return false;
     return client.latest_pay !== moment.get_period();
   });
+
   return {...state.clients, items: clients_paid};
 }
 
