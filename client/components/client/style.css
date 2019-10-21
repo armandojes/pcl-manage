@@ -9,15 +9,19 @@
 .item{
   border: 1px solid #cdcdcd;
   padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
   display: flex;
   align-items: center;
   font-size: .9em;
+  border-top: none;
+}
+.item:hover{
+  background: #2195f3;
 }
 .name{
   text-align: center;
   width: 150px;
+  color: black;
+  text-decoration: none;
 }
 .adress{
   text-align: center;
@@ -28,7 +32,6 @@
   color: red;
   text-align: center;
   width: 100px;
-  margin-left: 10px;
 }
 .number{
   width: 100px;
@@ -40,19 +43,19 @@
 }
 .button, .button_paid, .button_new{
   margin-left: 10px;
-  width: 65px;
-  background: #e0772c;
-  color: #fff;
+  width: 98px;
+  background: #fff;
+  color: orange;
   border-radius: 5px;
-  border: none;
   padding: 3px 10px;
   text-align: center;
+  border: 1px solid;
 }
 .button_paid{
-  background: #088c19;
+  color: green;
 }
 .button_new{
-  background: #2195f3;
+  color: #2195f3;
 }
 .update{
   display: flex;
@@ -63,28 +66,25 @@
   width: 60px;
 }
 .update img {
-  width: 30px;
+  width: 18px;
 }
 .latest_pay{
-  width: 180px;
+  width: 130px;
   text-align: center;
 }
 .status{
-  text-align: center;
   width: 100px;
-  margin-left: 20px;
+  margin-left: 50px;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
-.status_body{
-  border: 1px solid #2195f3;
-  width: 54px;
-  border-radius: 4px;
-  color: #2195f3;
-  padding: 3px;
+.active, .baja{
+  width: 10px;
+  height: 10px;
+  background: red;
+  border-radius: 50%;
+  margin-right: 10px;
 }
-.status_body_baja{
-  border: 1px solid red;
-  color: red;
+.active{
+  background: green;
 }

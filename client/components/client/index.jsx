@@ -39,11 +39,7 @@ function Client (props){
           ? (`$ ${props.cost}.00`)
           : (`Menusualidad`)}
       </div>
-      {props.id && (
-        <Link className={style.update} to={`/editarcliente/${props.id}`} >
-          <img src={`${ASSETS}/update.png`} />
-        </Link>
-      )}
+
       {props.id && is_paid && is_paid === true && (
         <button className={style.button_paid}> Pagado </button>
       )}
@@ -55,11 +51,16 @@ function Client (props){
       )}
       {props.id && (
         <div className={style.status}>
-          <div className={`${style.status_body} ${props.status === 'baja' && style.status_body_baja}`}>
-            {props.status}
-          </div>
+          <div className={props.status === 'baja' ? style.baja : style.active } />
+          {props.status}
         </div>
       )}
+      {props.id && (
+        <Link className={style.update} to={`/editarcliente/${props.id}`} >
+          <img src={`${ASSETS}/update.png`} />
+        </Link>
+      )}
+
     </article>
   )
 }
