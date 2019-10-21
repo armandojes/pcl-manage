@@ -1,12 +1,12 @@
 import axios from 'axios';
-var access_token = false;
+var get_state = false;
 
 export function instance_access_token(store){
-  const state = store.getState();
-  access_token = state.session.access_token;
+  get_state = store.getState;
 }
 
 async function connect (config){
+  const access_token = get_state().session.access_token;
   if (access_token){
     config.headers = {
       'Authorization': 'Bearer ' + access_token,
