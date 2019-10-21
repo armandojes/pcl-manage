@@ -105,7 +105,8 @@ const mapStateToProps = (state, props) => {
   return {
     loading: state.clients.loading,
     client: client_select,
+    session: state.session,
   }
 }
 
-export default connect(mapStateToProps, {fetch_clients, fetch_pays })(SessionHoc(Collect));
+export default connect(mapStateToProps, {fetch_clients, fetch_pays })(Collect);

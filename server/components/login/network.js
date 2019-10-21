@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import {admin, autenticated} from '../../middlewares/security';
 
 import start from './controllers/start'
 

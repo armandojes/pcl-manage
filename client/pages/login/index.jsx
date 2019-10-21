@@ -31,6 +31,7 @@ function Login (props){
         logged: true,
         id: state.payload.id,
         access_token: state.payload.token,
+        admin: state.payload.admin,
       });
     }
   }

@@ -1,5 +1,6 @@
 const initial_state = {
   session: {
+    admin: null,
     name: '',
     logged: false,
     id: 0,

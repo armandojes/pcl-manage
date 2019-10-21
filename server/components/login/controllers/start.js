@@ -14,6 +14,8 @@ async function start (request, response){
     password: request.body.password || '',
   });
 
+  
+
   if (result){
     response.success({
       payload: {

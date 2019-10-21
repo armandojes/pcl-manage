@@ -13,24 +13,32 @@ import NewClient from './pages/new_client';
 import EditClient from './pages/edit_client';
 import Calculator from './pages/calculator';
 import Client from './pages/client';
+import session_hoc from './helpers/session_hoc';
 
+function Pages () {
+  return (
+    <Switch>
+      <Route path='/' exact={true} component={Clients} />
+      <Route path='/calculadora' exact={true} component={Calculator} />
+      <Route path='/clientes' exact={true} component={Clients} />
+      <Route path='/pagados' exact={true} component={Paids} />
+      <Route path='/nopagados' exact={true} component={NotPaids} />
+      <Route path='/cobrar/:id' exact={true} component={Collect} />
+      <Route path='/cobrar/:id/:month' exact={true} component={Collect} />
+      <Route path='/nuevocliente' exact={true} component={NewClient} />
+      <Route path='/editarcliente/:id' exact={true} component={EditClient} />
+      <Route path='/cliente/:id' exact={true} component={Client} />
+    </Switch>
+  )
+}
+
+const PagesProtected = session_hoc(Pages);
 
 function App (props) {
   return (
     <div role="aplication">
       <Header />
-      <Switch>
-        <Route path='/' exact={true} component={Clients} />
-        <Route path='/calculadora' exact={true} component={Calculator} />
-        <Route path='/clientes' exact={true} component={Clients} />
-        <Route path='/pagados' exact={true} component={Paids} />
-        <Route path='/nopagados' exact={true} component={NotPaids} />
-        <Route path='/cobrar/:id' exact={true} component={Collect} />
-        <Route path='/cobrar/:id/:month' exact={true} component={Collect} />
-        <Route path='/nuevocliente' exact={true} component={NewClient} />
-        <Route path='/editarcliente/:id' exact={true} component={EditClient} />
-        <Route path='/cliente/:id' exact={true} component={Client} />
-      </Switch>
+      <PagesProtected />
     </div>
   )
 }
