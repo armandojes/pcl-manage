@@ -1,0 +1,13 @@
+.content{
+  display: flex;
+  align-items: center;
+}
+.close_icon{
+  width: 12px;
+  margin-left: 15px;
+  display: block;
+  cursor: pointer;
+}
+.close_icon:hover{
+  transform: scale(1.2);
+}

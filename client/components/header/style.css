@@ -6,9 +6,14 @@
   height: 50px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .logo{
   display: block;
   width: 35px;
   margin-right: 20px;
+}
+.primary{
+  display: flex;
+  align-items: center;
 }
