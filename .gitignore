@@ -4,3 +4,5 @@ public/styles.css
 node_modules/
 package-lock.json
 config.js
+electron/renderer.js
+electron/styles.css

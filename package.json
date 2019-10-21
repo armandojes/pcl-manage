@@ -2,8 +2,9 @@
   "name": "pcl-manage",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "electron/electron_starter.js",
   "scripts": {
+    "electron": "electron .",
     "watch": "set NODE_ENV=development&& webpack --watch --mode development",
     "build": "set NODE_ENV=production&& webpack -p --mode production",
     "server": "nodemon ./build/server.js",
