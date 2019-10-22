@@ -9,6 +9,10 @@ function createWindow () {
   win = new BrowserWindow({
     width: 1200,
     height: 768,
+    autoHideMenuBar: true,
+    resizable: false,
+    title: 'PCL',
+    icon: 'public/logo.png',
     webPreferences: {
       nodeIntegration: true
     }
@@ -16,9 +20,7 @@ function createWindow () {
 
   // and load the index.html of the app.
   win.loadFile('electron/index.html')
-
-  // Abre las herramientas de desarrollo (DevTools).
-  win.webContents.openDevTools()
+  win.webContents.openDevTools();
 
   // Emitido cuando la ventana es cerrada.
   win.on('closed', () => {

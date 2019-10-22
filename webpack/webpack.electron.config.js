@@ -42,8 +42,6 @@ const config = {
     }),
     new webpack.DefinePlugin({
       IS_PRODUCTION: process.env.NODE_ENV === 'production' ? true : false,
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-      BASEURL: JSON.stringify('/'),
       ASSETS: JSON.stringify('../public'),
       API: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://pcl.now.sh/api' : 'http://localhost:3001/api'),
     })

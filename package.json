@@ -4,11 +4,19 @@
   "description": "",
   "main": "electron/electron_starter.js",
   "scripts": {
+    "e:build" :  "npm run build && electron-builder",
+    "e:pack" :  "npm run build && electron-builder --dir" ,
     "electron": "electron .",
     "watch": "set NODE_ENV=development&& webpack --watch --mode development",
     "build": "set NODE_ENV=production&& webpack -p --mode production",
     "server": "nodemon ./build/server.js",
     "deploy": "npm run build && now --prod"
+  },
+  "build" :  {
+    "appId" :  "pcl.computo.accesorios" ,
+    "mac" :  {
+      "category" :  "pcl.manage"
+    }
   },
   "author": "",
   "license": "ISC",
