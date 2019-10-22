@@ -13,6 +13,7 @@ import NewClient from './pages/new_client';
 import EditClient from './pages/edit_client';
 import Calculator from './pages/calculator';
 import Client from './pages/client';
+import Default from './pages/default';
 import session_hoc from './helpers/session_hoc';
 
 function Pages () {
@@ -28,6 +29,7 @@ function Pages () {
       <Route path='/nuevocliente' exact={true} component={NewClient} />
       <Route path='/editarcliente/:id' exact={true} component={EditClient} />
       <Route path='/cliente/:id' exact={true} component={Client} />
+      <Route component={Default} />
     </Switch>
   )
 }

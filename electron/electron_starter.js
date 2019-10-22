@@ -7,20 +7,31 @@ var win
 function createWindow () {
   // Crea la ventana del navegador.
   win = new BrowserWindow({
+    show: false,
     width: 1200,
     height: 768,
+    minWidth: 1200,
+    minHeight: 768,
     autoHideMenuBar: true,
-    resizable: false,
     title: 'PCL',
-    icon: 'public/logo.png',
+    icon: 'public/icon.ico',
     webPreferences: {
       nodeIntegration: true
-    }
+    },
   })
 
+
+  //mostrar cuando este cargado
+  win.once('ready-to-show', () => {
+    win.show()
+  })
+
+  win.maximize();
+
   // and load the index.html of the app.
-  win.loadFile('electron/index.html')
-  win.webContents.openDevTools();
+  win.loadFile('electron/index.html');
+  // win.loadURL('https://pcl.now.sh');
+  //win.webContents.openDevTools();
 
   // Emitido cuando la ventana es cerrada.
   win.on('closed', () => {

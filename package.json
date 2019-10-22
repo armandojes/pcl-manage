@@ -6,6 +6,7 @@
   "scripts": {
     "e:build" :  "npm run build && electron-builder",
     "e:pack" :  "npm run build && electron-builder --dir" ,
+    "e:test" :  "electron-builder --dir" ,
     "electron": "electron .",
     "watch": "set NODE_ENV=development&& webpack --watch --mode development",
     "build": "set NODE_ENV=production&& webpack -p --mode production",
