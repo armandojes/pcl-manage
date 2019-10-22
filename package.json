@@ -13,6 +13,7 @@
     "deploy": "npm run build && now --prod"
   },
   "build" :  {
+    "icon": "public/icon.ico",
     "appId" :  "pcl.computo.accesorios" ,
     "mac" :  {
       "category" :  "pcl.manage"

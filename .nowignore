@@ -1,6 +1,7 @@
 .git/
 client/
 server/
+dist/
 node_modules/
 webpack/
 .gitignore
