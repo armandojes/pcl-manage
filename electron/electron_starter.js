@@ -29,8 +29,8 @@ function createWindow () {
   win.maximize();
 
   // and load the index.html of the app.
-  win.loadFile('electron/index.html');
-  // win.loadURL('https://pcl.now.sh');
+  // win.loadFile('electron/index.html');
+  win.loadURL('https://pcl.now.sh');
   //win.webContents.openDevTools();
 
   // Emitido cuando la ventana es cerrada.
