@@ -14,7 +14,9 @@ const query = (sql) => new Promise((resolve, reject) => {
     const data_parsed = data ? JSON.parse(JSON.stringify(data)) : null;
     resolve({error: error || false, data: data_parsed || [], fields: fields || {}});
   });
-  con.end();
+  con.end((error) => {
+    if (error) console.log('[error end_mysql]:', error);
+  });
 });
 
 function database (table_name){
