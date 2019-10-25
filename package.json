@@ -4,24 +4,27 @@
   "description": "",
   "main": "electron/electron_starter.js",
   "scripts": {
-    "pack" :  "npm run build && electron-builder --x64 --ia32",
+    "pack": "npm run build && electron-builder --x64 --ia32",
     "electron": "electron .",
     "watch": "set NODE_ENV=development&& webpack --watch --mode development",
     "build": "set NODE_ENV=production&& webpack -p --mode production",
     "server": "nodemon ./build/server.js",
     "deploy": "npm run build && now --prod"
   },
-  "build":  {
-    "icon":"public/icon.ico",
-    "appId":  "pcl.computo.accesorios"
+  "build": {
+    "icon": "public/icon.ico",
+    "appId": "pcl.computo.accesorios"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.0",
     "cors": "^2.8.5",
+    "exceljs": "^3.3.0",
     "express": "^4.17.1",
+    "html-pdf": "^2.2.0",
     "jsonwebtoken": "^8.5.1",
+    "jspdf": "^1.5.3",
     "moment": "^2.24.0",
     "mysql": "^2.17.1",
     "react": "^16.10.0",
@@ -31,7 +34,8 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "regenerator-runtime": "^0.13.3",
-    "reset-css": "^4.0.1"
+    "reset-css": "^4.0.1",
+    "xlsx": "^0.15.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
