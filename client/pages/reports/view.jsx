@@ -1,37 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Container from '../../components/container';
 import style from './style';
-import xlsx from 'xlsx';
 import moment from '../../helpers/moment'
-
+import Document from '../../helpers/document'
+import Loading from '../../components/loading';
 
 function View (props){
-
-
+  const [loading, set_loading] = useState(false);
   const period_now = moment.get_period();
-  const libro = xlsx.utils.book_new();
   const pays_this_period = props.pays.filter( pay =>  period_now === pay.period);
   const clients_paid = props.clients.filter(client => client.latest_pay === period_now)
   const client_not_paid = props.clients.filter(client => client.latest_pay != period_now)
+  const pays_from_places = split_clients_for_place_to_paid();
 
-  const transform_clients_before_to_excel = (clients) => clients.map((client, index) => ({
-    id: index + 1,
-    Nombre: client.name,
-    Mensualidad: client.cost,
-    Numero: client.number,
-    Direccion: client.adress,
-    Ultimo_pago: client.latest_pay,
-    Estado: client.status,
-    Observaciones: client.meta
-  }));
-
-
-
-  function new_sheet_of_clients(sheet_name, data){
-    const hoja = xlsx.utils.json_to_sheet(transform_clients_before_to_excel(data));
-    hoja['!cols'] = [{width: 5}, {width: 35}, {width: 12}, {width: 15}, {width: 40}, {width: 20}, {width: 12}, {width: 20}];
-    xlsx.utils.book_append_sheet(libro, hoja, sheet_name);
-  }
 
   function compose_clients (){
     return clients_paid.map(client => {
@@ -39,14 +20,6 @@ function View (props){
       client.place_to_paid = pay_for_this_client.place;
       return client;
     })
-  }
-
-  function handleClick (){
-    new_sheet_of_clients('Lista de clientes', props.clients);
-    new_sheet_of_clients('Pagados', clients_paid);
-    new_sheet_of_clients('No pagados', client_not_paid);
-    create_sheets_from_places_to_paid();
-    xlsx.writeFile(libro, `${period_now.toUpperCase()}.xlsx`);
   }
 
   function split_clients_for_place_to_paid (){
@@ -59,16 +32,26 @@ function View (props){
     return places;
   }
 
-  function create_sheets_from_places_to_paid(){
-    const places_with_data = split_clients_for_place_to_paid();
-    Object.keys(places_with_data).map(place_name => {
-      new_sheet_of_clients(place_name, places_with_data[place_name]);
+  function handleClick (){
+    set_loading(true);
+    Document.create_sheet('clientes', props.clients);
+    Document.create_sheet('Pagados', clients_paid);
+    Document.create_sheet('No pagados', client_not_paid);
+
+    Object.keys(pays_from_places).map(place_name => {
+      Document.create_sheet(place_name, pays_from_places[place_name])
     })
+    Document.download(period_now);
   }
 
   return (
     <Container className={style.container}>
-      <button className={style.button} onClick={handleClick}>Generar reporte xls</button>
+      {loading && (
+        <Loading />
+      )}
+      {!loading && (
+        <button className={style.button} onClick={handleClick}>Generar reporte xls</button>
+      )}
     </Container>
   )
 }
