@@ -5,6 +5,7 @@ import Container from '../../components/container';
 
 
 function View (props){
+
   console.log(props);
   const months = [
     'enero',
@@ -46,6 +47,7 @@ function View (props){
 
   return (
     <Container className={style.container}>
+      <h1>{props.client.name}</h1>
       <div className={style.calendar}>
         {compose().map ((month, index) => (
 
