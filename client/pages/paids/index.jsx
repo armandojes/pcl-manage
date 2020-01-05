@@ -17,6 +17,7 @@ function Paids (props){
 
 const mapStateToProps = (state) => {
   const clients_paid = state.clients.items.filter(client => client.latest_pay === moment.get_period());
+  console.log(state.clients.items);
   return {...state.clients, items: clients_paid};
 }
 

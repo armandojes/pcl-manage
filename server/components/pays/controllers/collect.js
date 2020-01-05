@@ -27,6 +27,7 @@ async function Collect  (request, response) {
     });
   }
 
+  //actualiza solo si el mes es mas actual.
   if (is_after || latest_pay === 'pending'){
     await store.update_latest_pay(payload.id_client, payload.period);
   }
